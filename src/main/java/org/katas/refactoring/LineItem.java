@@ -13,23 +13,19 @@ public class LineItem {
 		this.quality = quality;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public int getQuantity() {
-		return quality;
-	}
-
     double totalAmount() {
         return price * quality;
     }
 
 	public double salesTax() {
 		return totalAmount() * SALES_TAX_RATE;
+	}
+
+	@Override
+	public String toString() {
+		return description + '\t' +
+				price + '\t' +
+				quality + '\t' +
+				totalAmount() + '\n';
 	}
 }
