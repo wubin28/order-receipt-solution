@@ -14,8 +14,7 @@ public class OrderReceiptTest {
 
     @Test
     public void shouldPrintCustomerInformationOnOrder() {
-        Order order = new Order(CUSTOMER_NAME, CUSTOMER_ADDRESS, new ArrayList<LineItem>());
-        OrderReceipt receipt = new OrderReceipt(order);
+        OrderReceipt receipt = new OrderReceipt(new Order(CUSTOMER_NAME, CUSTOMER_ADDRESS, new ArrayList<LineItem>()));
 
         String output = receipt.printReceipt();
 
