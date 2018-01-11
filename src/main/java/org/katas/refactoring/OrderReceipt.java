@@ -26,11 +26,9 @@ public class OrderReceipt {
 			output.append(lineItem.toString());
 		}
 
-		// prints the state tax
 		output.append("Sales Tax").append('\t').append(order.totalSalesTax());
-
-        // print total amount
 		output.append("Total Amount").append('\t').append(order.totalAmountOfLineItems());
+
 		return output.toString();
 	}
 }
