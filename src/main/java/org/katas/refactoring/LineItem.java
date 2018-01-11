@@ -1,6 +1,7 @@
 package org.katas.refactoring;
 
 public class LineItem {
+	public static final double SALES_TAX_RATE = .10;
 	private final String description;
 	private final double price;
 	private final int quality;
@@ -29,7 +30,6 @@ public class LineItem {
     }
 
 	public double salesTax() {
-		// calculate sales tax @ rate of 10%
-		return totalAmount() * .10;
+		return totalAmount() * SALES_TAX_RATE;
 	}
 }
