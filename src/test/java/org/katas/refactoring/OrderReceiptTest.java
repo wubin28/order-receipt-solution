@@ -8,15 +8,19 @@ import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.containsString;
 
 public class OrderReceiptTest {
+
+    public static final String CUSTOMER_NAME = "Mr X";
+    public static final String CUSTOMER_ADDRESS = "Chicago, 60601";
+
     @Test
     public void shouldPrintCustomerInformationOnOrder() {
-        Order order = new Order("Mr X", "Chicago, 60601", new ArrayList<LineItem>());
+        Order order = new Order(CUSTOMER_NAME, CUSTOMER_ADDRESS, new ArrayList<LineItem>());
         OrderReceipt receipt = new OrderReceipt(order);
 
         String output = receipt.printReceipt();
 
-        assertThat(output, containsString("Mr X"));
-        assertThat(output, containsString("Chicago, 60601"));
+        assertThat(output, containsString(CUSTOMER_NAME));
+        assertThat(output, containsString(CUSTOMER_ADDRESS));
     }
 
     @Test
