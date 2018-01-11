@@ -15,20 +15,6 @@ public class OrderReceipt {
 	}
 
 	public String printReceipt() {
-		StringBuilder output = new StringBuilder();
-
-		output.append("======Printing Orders======\n");
-
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
-
-		for (LineItem lineItem : order.getLineItems()) {
-			output.append(lineItem.toString());
-		}
-
-		output.append("Sales Tax").append('\t').append(order.totalSalesTax());
-		output.append("Total Amount").append('\t').append(order.totalAmountOfLineItems());
-
-		return output.toString();
+		return order.receipt();
 	}
 }

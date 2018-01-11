@@ -41,4 +41,21 @@ public class Order {
         }
         return totalAmountOfLineItems;
     }
+
+    public String receipt() {
+        StringBuilder output = new StringBuilder();
+
+        output.append("======Printing Orders======\n");
+
+        output.append(customerName);
+        output.append(customerAddress);
+
+        for (LineItem lineItem : lineItems) {
+            output.append(lineItem.toString());
+        }
+
+        output.append("Sales Tax").append('\t').append(totalSalesTax());
+        output.append("Total Amount").append('\t').append(totalAmountOfLineItems());
+        return output.toString();
+    }
 }
