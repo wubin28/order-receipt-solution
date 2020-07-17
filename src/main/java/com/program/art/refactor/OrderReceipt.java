@@ -18,15 +18,14 @@ public class OrderReceipt {
 		StringBuilder output = new StringBuilder();
 
 		// print headers
-		output.append("======Printing Orders======\n");
+		output.append("====== Order Receipt ======\n");
 
 		// print date, bill no, customer name
-//        output.append("Date - " + order.getDate();
         output.append(o.getCustomerName());
         output.append(o.getCustomerAddress());
-//        output.append(order.getCustomerLoyaltyNumber());
 
 		// prints lineItems
+		output.append("\n ------ Products ------\n");
 		double totSalesTx = 0d;
 		double tot = 0d;
 		for (LineItem lineItem : o.getLineItems()) {
