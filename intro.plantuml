@@ -1,0 +1,32 @@
+@startuml
+
+title OrderReceipt 重构基础
+
++Class Order {
+ -String nm
+ -String addr
+ -List<LineItem> li
+}
+
++Class LineItem{
+    -String desc
+    -double p
+    -int qty
+}
+
+Order "1" *-- "many" LineItem : contains
+
+
++Class OrderReceipt{
+ - Order o
+ +String printReceipt()
+}
+note bottom
+提供打印订单小票的功能，小票需要包括内容：
+* 订单列表，内容包括：客户名称，地址，商品描述，商品数量，单价，总额
+* 销售税费 10%
+* 订单总价 （商品汇总价格+销售税费）
+end note
+
+
+@enduml
