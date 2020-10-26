@@ -1,6 +1,7 @@
 package org.katas.refactoring;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Order {
     String customerName;
@@ -38,9 +39,7 @@ public class Order {
         output.append(customerName);
         output.append(customerAddress);
 
-        for (LineItem lineItem : lineItems) {
-            output.append(lineItem.toString());
-        }
+        output.append(lineItems.stream().map(LineItem::toString).collect(Collectors.joining()));
 
         output.append("Sales Tax").append('\t').append(totalSalesTax());
         output.append("Total Amount").append('\t').append(totalAmountOfLineItems());
