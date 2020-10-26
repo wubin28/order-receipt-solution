@@ -23,12 +23,8 @@ public class Order {
         return totalSalesTax;
     }
 
-    public double totalAmountOfLineItems() {
-        double totalAmountOfLineItems = 0d;
-        for (LineItem lineItem : lineItems) {
-            totalAmountOfLineItems += lineItem.totalAmount() + lineItem.salesTax();
-        }
-        return totalAmountOfLineItems;
+    public double totalAmountWithSalesTaxOfLineItems() {
+        return lineItems.stream().map(LineItem::totalAmountWithSalesTax).mapToDouble(n -> n).sum();
     }
 
     public String receipt() {
@@ -42,7 +38,7 @@ public class Order {
         output.append(lineItems.stream().map(LineItem::toString).collect(Collectors.joining()));
 
         output.append("Sales Tax").append('\t').append(totalSalesTax());
-        output.append("Total Amount").append('\t').append(totalAmountOfLineItems());
+        output.append("Total Amount").append('\t').append(totalAmountWithSalesTaxOfLineItems());
         return output.toString();
     }
 }
