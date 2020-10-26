@@ -15,12 +15,7 @@ public class Order {
     }
 
     public double totalSalesTax() {
-        double totalSalesTax = 0d;
-        for (LineItem lineItem : lineItems) {
-            double salesTax = lineItem.salesTax();
-            totalSalesTax += salesTax;
-        }
-        return totalSalesTax;
+        return lineItems.stream().map(LineItem::salesTax).mapToDouble(n -> n).sum();
     }
 
     public double totalAmountWithSalesTaxOfLineItems() {
