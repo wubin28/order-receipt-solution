@@ -33,4 +33,12 @@ public class Order {
         }
         return totalSalesTax;
     }
+
+    double totalAmount() {
+        double totalAmount = 0d;
+        for (LineItem lineItem : getLineItems()) {
+            totalAmount += lineItem.totalAmount() + lineItem.salesTax();
+        }
+        return totalAmount;
+    }
 }
