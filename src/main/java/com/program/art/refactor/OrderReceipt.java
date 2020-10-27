@@ -28,11 +28,9 @@ public class OrderReceipt {
 			output.append('\n');
 		}
 
-		double totalAmount = order.totalAmount();
-
 		output.append('\n').append("Sales Tax").append('\t').append(order.totalSalesTax()).append('\n');
 
-		output.append("Total Amount").append('\t').append(totalAmount);
+		output.append("Total Amount").append('\t').append(order.totalAmount());
 		return output.toString();
 	}
 
