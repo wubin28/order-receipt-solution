@@ -8,7 +8,8 @@ package com.program.art.refactor;
  * 
  */
 public class OrderReceipt {
-    private Order order;
+	public static final double SALES_TAX_RATE = .10;
+	private Order order;
 
     public OrderReceipt(Order order) {
         this.order = order;
@@ -39,7 +40,7 @@ public class OrderReceipt {
 			output.append('\n');
 
 			// calculate sales tax @ rate of 10%
-			double salesTax = lineItem.totalAmount() * .10;
+			double salesTax = lineItem.totalAmount() * SALES_TAX_RATE;
 			totalSalesTax += salesTax;
 
 			// calculate total amount of lineItem = price * quantity + 10 % sales tax
