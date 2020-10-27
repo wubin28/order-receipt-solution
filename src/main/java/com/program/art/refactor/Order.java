@@ -41,4 +41,23 @@ public class Order {
         }
         return totalAmount;
     }
+
+    String render() {
+        StringBuilder output = new StringBuilder();
+
+        output.append("====== Order Receipt ======\n");
+
+        output.append(getCustomerName());
+        output.append(getCustomerAddress());
+
+        output.append("\n ------ Products ------\n");
+        for (LineItem lineItem : getLineItems()) {
+            output.append(lineItem.render());
+        }
+
+        output.append('\n').append("Sales Tax").append('\t').append(totalSalesTax()).append('\n');
+
+        output.append("Total Amount").append('\t').append(totalAmount());
+        return output.toString();
+    }
 }

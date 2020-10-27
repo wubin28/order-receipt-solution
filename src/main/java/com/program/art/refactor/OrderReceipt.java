@@ -9,26 +9,7 @@ public class OrderReceipt {
 	}
 
 	public String printReceipt() {
-		return render();
-	}
-
-	private String render() {
-		StringBuilder output = new StringBuilder();
-
-		output.append("====== Order Receipt ======\n");
-
-		output.append(order.getCustomerName());
-		output.append(order.getCustomerAddress());
-
-		output.append("\n ------ Products ------\n");
-		for (LineItem lineItem : order.getLineItems()) {
-			output.append(lineItem.render());
-		}
-
-		output.append('\n').append("Sales Tax").append('\t').append(order.totalSalesTax()).append('\n');
-
-		output.append("Total Amount").append('\t').append(order.totalAmount());
-		return output.toString();
+		return order.render();
 	}
 
 }
