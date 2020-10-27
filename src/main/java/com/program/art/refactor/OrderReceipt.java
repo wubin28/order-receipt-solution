@@ -30,9 +30,13 @@ public class OrderReceipt {
 			output.append('\n');
 
 			double salesTax = lineItem.salesTax();
-			totalSalesTax += salesTax;
 
 			totalAmount += lineItem.totalAmount() + salesTax;
+		}
+
+		for (LineItem lineItem : order.getLineItems()) {
+			double salesTax = lineItem.salesTax();
+			totalSalesTax += salesTax;
 		}
 
 		output.append('\n').append("Sales Tax").append('\t').append(totalSalesTax).append('\n');
