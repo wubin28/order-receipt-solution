@@ -13,21 +13,9 @@ public class Order {
         this.lineItems = lineItems;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public String getCustomerAddress() {
-        return address;
-    }
-
-    public List<LineItem> getLineItems() {
-        return lineItems;
-    }
-
     double totalSalesTax() {
         double totalSalesTax = 0d;
-        for (LineItem lineItem : getLineItems()) {
+        for (LineItem lineItem : lineItems) {
             double salesTax = lineItem.salesTax();
             totalSalesTax += salesTax;
         }
@@ -36,7 +24,7 @@ public class Order {
 
     double totalAmount() {
         double totalAmount = 0d;
-        for (LineItem lineItem : getLineItems()) {
+        for (LineItem lineItem : lineItems) {
             totalAmount += lineItem.totalAmount() + lineItem.salesTax();
         }
         return totalAmount;
@@ -47,11 +35,11 @@ public class Order {
 
         output.append("====== Order Receipt ======\n");
 
-        output.append(getCustomerName());
-        output.append(getCustomerAddress());
+        output.append(customerName);
+        output.append(address);
 
         output.append("\n ------ Products ------\n");
-        for (LineItem lineItem : getLineItems()) {
+        for (LineItem lineItem : lineItems) {
             output.append(lineItem.render());
         }
 
