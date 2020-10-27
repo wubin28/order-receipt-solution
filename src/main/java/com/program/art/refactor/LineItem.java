@@ -12,19 +12,7 @@ public class LineItem {
 		this.quality = quality;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public int getQuantity() {
-		return quality;
-	}
-
-    double totalAmount() {
+	double totalAmount() {
         return price * quality;
     }
 
@@ -33,9 +21,9 @@ public class LineItem {
 	}
 
 	String render() {
-		return getDescription() + '\t' +
-				getPrice() + '\t' +
-				getQuantity() + '\t' +
+		return description + '\t' +
+				price + '\t' +
+				quality + '\t' +
 				totalAmount() + '\n';
 	}
 }
