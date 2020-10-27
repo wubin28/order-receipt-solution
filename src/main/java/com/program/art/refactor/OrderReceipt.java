@@ -17,7 +17,6 @@ public class OrderReceipt {
         output.append(order.getCustomerAddress());
 
 		output.append("\n ------ Products ------\n");
-		double totalSalesTax = 0d;
 		double totalAmount = 0d;
 		for (LineItem lineItem : order.getLineItems()) {
 			output.append(lineItem.getDescription());
@@ -34,6 +33,7 @@ public class OrderReceipt {
 			totalAmount += lineItem.totalAmount() + salesTax;
 		}
 
+		double totalSalesTax = 0d;
 		for (LineItem lineItem : order.getLineItems()) {
 			double salesTax = lineItem.salesTax();
 			totalSalesTax += salesTax;
