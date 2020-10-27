@@ -18,14 +18,10 @@ public class OrderReceipt {
 
 		output.append("\n ------ Products ------\n");
 		for (LineItem lineItem : order.getLineItems()) {
-			output.append(lineItem.getDescription());
-			output.append('\t');
-			output.append(lineItem.getPrice());
-			output.append('\t');
-			output.append(lineItem.getQuantity());
-			output.append('\t');
-			output.append(lineItem.totalAmount());
-			output.append('\n');
+			output.append(lineItem.getDescription() + '\t' +
+					lineItem.getPrice() + '\t' +
+					lineItem.getQuantity() + '\t' +
+					lineItem.totalAmount() + '\n');
 		}
 
 		output.append('\n').append("Sales Tax").append('\t').append(order.totalSalesTax()).append('\n');
