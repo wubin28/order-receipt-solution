@@ -29,7 +29,7 @@ public class OrderReceipt {
 			output.append(lineItem.totalAmount());
 			output.append('\n');
 
-			double salesTax = salesTax(lineItem);
+			double salesTax = lineItem.salesTax();
 			totalSalesTax += salesTax;
 
 			totalAmount += lineItem.totalAmount() + salesTax;
@@ -41,7 +41,4 @@ public class OrderReceipt {
 		return output.toString();
 	}
 
-	private double salesTax(LineItem lineItem) {
-		return lineItem.totalAmount() * SALES_TAX_RATE;
-	}
 }

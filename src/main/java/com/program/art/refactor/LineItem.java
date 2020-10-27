@@ -27,4 +27,8 @@ public class LineItem {
     double totalAmount() {
         return price * quality;
     }
+
+	double salesTax() {
+		return totalAmount() * OrderReceipt.SALES_TAX_RATE;
+	}
 }
