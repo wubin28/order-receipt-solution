@@ -1,30 +1,30 @@
 package com.program.art.refactor;
 
 public class LineItem {
-	private String desc;
-	private double p;
-	private int qty;
+	private String description;
+	private double price;
+	private int quality;
 
-	public LineItem(String desc, double p, int qty) {
+	public LineItem(String description, double price, int quality) {
 		super();
-		this.desc = desc;
-		this.p = p;
-		this.qty = qty;
+		this.description = description;
+		this.price = price;
+		this.quality = quality;
 	}
 
 	public String getDescription() {
-		return desc;
+		return description;
 	}
 
 	public double getPrice() {
-		return p;
+		return price;
 	}
 
 	public int getQuantity() {
-		return qty;
+		return quality;
 	}
 
     double totalAmount() {
-        return p * qty;
+        return price * quality;
     }
 }
