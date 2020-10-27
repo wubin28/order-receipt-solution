@@ -33,16 +33,21 @@ public class OrderReceipt {
 			totalAmount += lineItem.totalAmount() + salesTax;
 		}
 
-		double totalSalesTax = 0d;
-		for (LineItem lineItem : order.getLineItems()) {
-			double salesTax = lineItem.salesTax();
-			totalSalesTax += salesTax;
-		}
+		double totalSalesTax = totalSalesTax();
 
 		output.append('\n').append("Sales Tax").append('\t').append(totalSalesTax).append('\n');
 
 		output.append("Total Amount").append('\t').append(totalAmount);
 		return output.toString();
+	}
+
+	private double totalSalesTax() {
+		double totalSalesTax = 0d;
+		for (LineItem lineItem : order.getLineItems()) {
+			double salesTax = lineItem.salesTax();
+			totalSalesTax += salesTax;
+		}
+		return totalSalesTax;
 	}
 
 }
