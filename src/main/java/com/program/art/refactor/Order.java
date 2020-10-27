@@ -1,6 +1,7 @@
 package com.program.art.refactor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Order {
     String customerName;
@@ -39,9 +40,7 @@ public class Order {
         output.append(address);
 
         output.append("\n ------ Products ------\n");
-        for (LineItem lineItem : lineItems) {
-            output.append(lineItem.render());
-        }
+        output.append(lineItems.stream().map(LineItem::render).collect(Collectors.joining()));
 
         output.append('\n').append("Sales Tax").append('\t').append(totalSalesTax()).append('\n');
 
