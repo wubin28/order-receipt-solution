@@ -24,4 +24,13 @@ public class Order {
     public List<LineItem> getLineItems() {
         return lineItems;
     }
+
+    double totalSalesTax() {
+        double totalSalesTax = 0d;
+        for (LineItem lineItem : getLineItems()) {
+            double salesTax = lineItem.salesTax();
+            totalSalesTax += salesTax;
+        }
+        return totalSalesTax;
+    }
 }
