@@ -26,4 +26,8 @@ public class LineItem {
 				quality + '\t' +
 				totalAmount() + '\n';
 	}
+
+	public double totalAmountWithSalesTax() {
+		return totalAmount() + salesTax();
+	}
 }

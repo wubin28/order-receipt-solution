@@ -24,11 +24,7 @@ public class Order {
     }
 
     double totalAmount() {
-        double totalAmount = 0d;
-        for (LineItem lineItem : lineItems) {
-            totalAmount += lineItem.totalAmount() + lineItem.salesTax();
-        }
-        return totalAmount;
+        return lineItems.stream().map(LineItem::totalAmountWithSalesTax).mapToDouble(n -> n).sum();
     }
 
     String render() {
