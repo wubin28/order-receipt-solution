@@ -31,4 +31,11 @@ public class LineItem {
 	double salesTax() {
 		return totalAmount() * OrderReceipt.SALES_TAX_RATE;
 	}
+
+	String render() {
+		return getDescription() + '\t' +
+				getPrice() + '\t' +
+				getQuantity() + '\t' +
+				totalAmount() + '\n';
+	}
 }
